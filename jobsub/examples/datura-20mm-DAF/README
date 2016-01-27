@@ -1,0 +1,224 @@
+******* PLEASE NOTE *******
+This example mainly demonstrates how to set up a test case for
+EUTelescope development. The steering-templates are based on older
+pysub-templates and have not been optimized.
+******* PLEASE NOTE *******
+
+This directory contains an example configuration for the Datura
+telescope with six planes of Mimosa26 without DUT.
+
+This example is based on a test beam campaign done in August 2012 at DESY
+within DESY summer school.
+
+The corresponding data can be found at:
+CMS and ATLAS wockgroup servers.
+
+If you are interested in the data but cannot access the above path,
+please contact the EUTelescope software coordinators.
+
+
+Features of this configuration:
+------------------------------
+
+- telescope alone, no DUT data
+- distance between planes 20 mm
+
+
+Known issues:
+------------
+
+EUTelMille hard coded steering parameters:
+
+-      steerFile << "! chiscut 5.0 2.5" << endl;
+-      steerFile << "! outlierdownweighting 4" << endl;
+
+changed to 
+
++      steerFile << "chiscut 30. 6.0" << endl;
++      steerFile << "outlierdownweighting 4" << endl;
+
+seems to be important. to be checked.
+
+list of DUTHisto unbiased residuals below (10000 events):
+
+fitter-000033.log:[ "DUTHisto05"]     Ntrks: 37346     X_mean:  0.02  X_rms:  7.46     Y_mean: -0.99  Y_rms:  7.47
+fitter-000033.log:[ "DUTHisto04"]     Ntrks: 37987     X_mean: -0.04  X_rms:  4.76     Y_mean:  0.63  Y_rms:  4.85
+fitter-000033.log:[ "DUTHisto03"]     Ntrks: 38088     X_mean:  0.05  X_rms:  4.86     Y_mean:  0.14  Y_rms:  4.83
+fitter-000033.log:[ "DUTHisto02"]     Ntrks: 38112     X_mean: -0.05  X_rms:  4.87     Y_mean: -0.05  Y_rms:  4.87
+fitter-000033.log:[ "DUTHisto01"]     Ntrks: 37950     X_mean:  0.00  X_rms:  4.66     Y_mean: -0.12  Y_rms:  4.74
+fitter-000033.log:[ "DUTHisto00"]     Ntrks: 37368     X_mean:  0.06  X_rms:  7.47     Y_mean: -0.10  Y_rms:  7.49
+fitter-000034.log:[ "DUTHisto05"]     Ntrks: 43456     X_mean:  0.22  X_rms:  7.50     Y_mean:  0.29  Y_rms:  7.43
+fitter-000034.log:[ "DUTHisto04"]     Ntrks: 44077     X_mean: -0.09  X_rms:  4.73     Y_mean: -0.10  Y_rms:  4.76
+fitter-000034.log:[ "DUTHisto03"]     Ntrks: 44308     X_mean: -0.03  X_rms:  4.84     Y_mean: -0.08  Y_rms:  4.84
+fitter-000034.log:[ "DUTHisto02"]     Ntrks: 44290     X_mean: -0.03  X_rms:  4.83     Y_mean: -0.06  Y_rms:  4.86
+fitter-000034.log:[ "DUTHisto01"]     Ntrks: 44112     X_mean: -0.01  X_rms:  4.60     Y_mean: -0.01  Y_rms:  4.67
+fitter-000034.log:[ "DUTHisto00"]     Ntrks: 43463     X_mean:  0.12  X_rms:  7.43     Y_mean:  0.22  Y_rms:  7.46
+fitter-000035.log:[ "DUTHisto05"]     Ntrks: 40813     X_mean:  0.04  X_rms:  7.46     Y_mean:  0.04  Y_rms:  7.42
+fitter-000035.log:[ "DUTHisto04"]     Ntrks: 41401     X_mean: -0.00  X_rms:  4.73     Y_mean:  0.04  Y_rms:  4.73
+fitter-000035.log:[ "DUTHisto03"]     Ntrks: 41549     X_mean: -0.00  X_rms:  4.81     Y_mean: -0.03  Y_rms:  4.78
+fitter-000035.log:[ "DUTHisto02"]     Ntrks: 41587     X_mean: -0.01  X_rms:  4.78     Y_mean: -0.03  Y_rms:  4.83
+fitter-000035.log:[ "DUTHisto01"]     Ntrks: 41414     X_mean: -0.01  X_rms:  4.52     Y_mean: -0.03  Y_rms:  4.56
+fitter-000035.log:[ "DUTHisto00"]     Ntrks: 40842     X_mean:  0.02  X_rms:  7.29     Y_mean:  0.10  Y_rms:  7.34
+fitter-000036.log:[ "DUTHisto05"]     Ntrks: 33023     X_mean:  0.05  X_rms:  7.39     Y_mean:  0.03  Y_rms:  7.35
+fitter-000036.log:[ "DUTHisto04"]     Ntrks: 33507     X_mean: -0.12  X_rms:  4.67     Y_mean:  0.07  Y_rms:  4.68
+fitter-000036.log:[ "DUTHisto03"]     Ntrks: 33594     X_mean:  0.05  X_rms:  4.79     Y_mean: -0.05  Y_rms:  4.72
+fitter-000036.log:[ "DUTHisto02"]     Ntrks: 33660     X_mean:  0.06  X_rms:  4.80     Y_mean: -0.03  Y_rms:  4.82
+fitter-000036.log:[ "DUTHisto01"]     Ntrks: 33486     X_mean: -0.02  X_rms:  4.54     Y_mean: -0.04  Y_rms:  4.55
+fitter-000036.log:[ "DUTHisto00"]     Ntrks: 33049     X_mean: -0.03  X_rms:  7.38     Y_mean:  0.13  Y_rms:  7.33
+fitter-000037.log:[ "DUTHisto05"]     Ntrks: 19244     X_mean: -0.09  X_rms:  7.39     Y_mean:  0.00  Y_rms:  7.38
+fitter-000037.log:[ "DUTHisto04"]     Ntrks: 19491     X_mean:  0.04  X_rms:  4.72     Y_mean:  0.02  Y_rms:  4.68
+fitter-000037.log:[ "DUTHisto03"]     Ntrks: 19561     X_mean:  0.03  X_rms:  4.85     Y_mean: -0.00  Y_rms:  4.85
+fitter-000037.log:[ "DUTHisto02"]     Ntrks: 19572     X_mean:  0.02  X_rms:  4.89     Y_mean: -0.02  Y_rms:  4.87
+fitter-000037.log:[ "DUTHisto01"]     Ntrks: 19480     X_mean: -0.03  X_rms:  4.58     Y_mean:  0.00  Y_rms:  4.58
+fitter-000037.log:[ "DUTHisto00"]     Ntrks: 19257     X_mean: -0.01  X_rms:  7.48     Y_mean:  0.02  Y_rms:  7.46
+fitter-000038.log:[ "DUTHisto05"]     Ntrks: 37456     X_mean:  0.02  X_rms:  7.59     Y_mean:  0.14  Y_rms:  7.52
+fitter-000038.log:[ "DUTHisto04"]     Ntrks: 37973     X_mean: -0.06  X_rms:  4.86     Y_mean: -0.03  Y_rms:  4.80
+fitter-000038.log:[ "DUTHisto03"]     Ntrks: 38145     X_mean:  0.03  X_rms:  5.05     Y_mean: -0.05  Y_rms:  4.99
+fitter-000038.log:[ "DUTHisto02"]     Ntrks: 38162     X_mean:  0.06  X_rms:  5.02     Y_mean: -0.04  Y_rms:  5.01
+fitter-000038.log:[ "DUTHisto01"]     Ntrks: 37979     X_mean: -0.01  X_rms:  4.75     Y_mean:  0.00  Y_rms:  4.72
+fitter-000038.log:[ "DUTHisto00"]     Ntrks: 37424     X_mean: -0.04  X_rms:  7.58     Y_mean:  0.12  Y_rms:  7.53
+fitter-000039.log:[ "DUTHisto05"]     Ntrks: 32575     X_mean: -0.13  X_rms:  7.71     Y_mean:  0.12  Y_rms:  7.62
+fitter-000039.log:[ "DUTHisto04"]     Ntrks: 33084     X_mean:  0.02  X_rms:  5.02     Y_mean:  0.01  Y_rms:  4.95
+fitter-000039.log:[ "DUTHisto03"]     Ntrks: 33208     X_mean:  0.08  X_rms:  5.16     Y_mean: -0.07  Y_rms:  5.09
+fitter-000039.log:[ "DUTHisto02"]     Ntrks: 33247     X_mean: -0.02  X_rms:  5.18     Y_mean: -0.01  Y_rms:  5.16
+fitter-000039.log:[ "DUTHisto01"]     Ntrks: 33075     X_mean: -0.04  X_rms:  4.87     Y_mean: -0.04  Y_rms:  4.83
+fitter-000039.log:[ "DUTHisto00"]     Ntrks: 32663     X_mean:  0.04  X_rms:  7.63     Y_mean:  0.15  Y_rms:  7.67
+fitter-000040.log:[ "DUTHisto05"]     Ntrks: 29159     X_mean:  0.09  X_rms:  7.77     Y_mean:  0.05  Y_rms:  7.78
+fitter-000040.log:[ "DUTHisto04"]     Ntrks: 29615     X_mean: -0.02  X_rms:  5.13     Y_mean:  0.07  Y_rms:  5.12
+fitter-000040.log:[ "DUTHisto03"]     Ntrks: 29737     X_mean: -0.05  X_rms:  5.27     Y_mean: -0.09  Y_rms:  5.21
+fitter-000040.log:[ "DUTHisto02"]     Ntrks: 29777     X_mean:  0.02  X_rms:  5.29     Y_mean: -0.06  Y_rms:  5.31
+fitter-000040.log:[ "DUTHisto01"]     Ntrks: 29600     X_mean: -0.01  X_rms:  4.97     Y_mean: -0.04  Y_rms:  4.98
+fitter-000040.log:[ "DUTHisto00"]     Ntrks: 29176     X_mean:  0.04  X_rms:  7.79     Y_mean:  0.20  Y_rms:  7.79
+fitter-000041.log:[ "DUTHisto05"]     Ntrks: 16756     X_mean:  0.11  X_rms:  7.88     Y_mean:  0.09  Y_rms:  7.83
+fitter-000041.log:[ "DUTHisto04"]     Ntrks: 17025     X_mean: -0.08  X_rms:  5.21     Y_mean: -0.11  Y_rms:  5.23
+fitter-000041.log:[ "DUTHisto03"]     Ntrks: 17109     X_mean: -0.05  X_rms:  5.29     Y_mean:  0.02  Y_rms:  5.25
+fitter-000041.log:[ "DUTHisto02"]     Ntrks: 17113     X_mean:  0.06  X_rms:  5.31     Y_mean:  0.01  Y_rms:  5.35
+fitter-000041.log:[ "DUTHisto01"]     Ntrks: 17029     X_mean:  0.03  X_rms:  5.09     Y_mean: -0.02  Y_rms:  5.08
+fitter-000041.log:[ "DUTHisto00"]     Ntrks: 16791     X_mean: -0.02  X_rms:  7.78     Y_mean: -0.00  Y_rms:  7.88
+fitter-000045.log:[ "DUTHisto05"]     Ntrks: 12208     X_mean:  0.12  X_rms:  7.91     Y_mean:  0.03  Y_rms:  7.92
+fitter-000045.log:[ "DUTHisto04"]     Ntrks: 12394     X_mean: -0.02  X_rms:  5.31     Y_mean:  0.02  Y_rms:  5.34
+fitter-000045.log:[ "DUTHisto03"]     Ntrks: 12441     X_mean: -0.08  X_rms:  5.44     Y_mean: -0.04  Y_rms:  5.34
+fitter-000045.log:[ "DUTHisto02"]     Ntrks: 12455     X_mean:  0.02  X_rms:  5.39     Y_mean:  0.01  Y_rms:  5.41
+fitter-000045.log:[ "DUTHisto01"]     Ntrks: 12405     X_mean:  0.07  X_rms:  5.15     Y_mean: -0.02  Y_rms:  5.20
+fitter-000045.log:[ "DUTHisto00"]     Ntrks: 12207     X_mean: -0.03  X_rms:  7.92     Y_mean:  0.13  Y_rms:  8.03
+fitter-000046.log:[ "DUTHisto05"]     Ntrks: 40997     X_mean: -0.39  X_rms:  6.83     Y_mean:  0.67  Y_rms:  6.86
+fitter-000046.log:[ "DUTHisto04"]     Ntrks: 41355     X_mean:  0.16  X_rms:  4.58     Y_mean: -0.25  Y_rms:  4.59
+fitter-000046.log:[ "DUTHisto03"]     Ntrks: 41550     X_mean:  0.09  X_rms:  4.63     Y_mean: -0.28  Y_rms:  4.65
+fitter-000046.log:[ "DUTHisto02"]     Ntrks: 41544     X_mean:  0.06  X_rms:  4.62     Y_mean: -0.03  Y_rms:  4.64
+fitter-000046.log:[ "DUTHisto01"]     Ntrks: 41335     X_mean:  0.01  X_rms:  4.40     Y_mean:  0.05  Y_rms:  4.56
+fitter-000046.log:[ "DUTHisto00"]     Ntrks: 41031     X_mean: -0.21  X_rms:  6.78     Y_mean:  0.31  Y_rms:  6.86
+fitter-000047.log:[ "DUTHisto05"]     Ntrks: 47707     X_mean:  0.08  X_rms:  6.83     Y_mean:  0.02  Y_rms:  6.80
+fitter-000047.log:[ "DUTHisto04"]     Ntrks: 48116     X_mean: -0.07  X_rms:  4.53     Y_mean: -0.01  Y_rms:  4.54
+fitter-000047.log:[ "DUTHisto03"]     Ntrks: 48304     X_mean:  0.01  X_rms:  4.59     Y_mean:  0.04  Y_rms:  4.59
+fitter-000047.log:[ "DUTHisto02"]     Ntrks: 48328     X_mean:  0.02  X_rms:  4.58     Y_mean: -0.05  Y_rms:  4.60
+fitter-000047.log:[ "DUTHisto01"]     Ntrks: 48071     X_mean: -0.01  X_rms:  4.37     Y_mean: -0.02  Y_rms:  4.43
+fitter-000047.log:[ "DUTHisto00"]     Ntrks: 47761     X_mean:  0.04  X_rms:  6.74     Y_mean:  0.04  Y_rms:  6.78
+fitter-000048.log:[ "DUTHisto05"]     Ntrks: 47337     X_mean:  0.03  X_rms:  6.82     Y_mean:  0.08  Y_rms:  6.77
+fitter-000048.log:[ "DUTHisto04"]     Ntrks: 47694     X_mean:  0.02  X_rms:  4.50     Y_mean:  0.02  Y_rms:  4.47
+fitter-000048.log:[ "DUTHisto03"]     Ntrks: 47902     X_mean: -0.04  X_rms:  4.59     Y_mean: -0.09  Y_rms:  4.56
+fitter-000048.log:[ "DUTHisto02"]     Ntrks: 47959     X_mean: -0.01  X_rms:  4.56     Y_mean:  0.00  Y_rms:  4.60
+fitter-000048.log:[ "DUTHisto01"]     Ntrks: 47670     X_mean: -0.01  X_rms:  4.33     Y_mean: -0.01  Y_rms:  4.36
+fitter-000048.log:[ "DUTHisto00"]     Ntrks: 47380     X_mean:  0.07  X_rms:  6.70     Y_mean:  0.07  Y_rms:  6.74
+fitter-000049.log:[ "DUTHisto05"]     Ntrks: 43565     X_mean:  0.06  X_rms:  6.76     Y_mean:  0.08  Y_rms:  6.73
+fitter-000049.log:[ "DUTHisto04"]     Ntrks: 43906     X_mean: -0.04  X_rms:  4.44     Y_mean: -0.01  Y_rms:  4.47
+fitter-000049.log:[ "DUTHisto03"]     Ntrks: 44088     X_mean:  0.00  X_rms:  4.57     Y_mean: -0.01  Y_rms:  4.54
+fitter-000049.log:[ "DUTHisto02"]     Ntrks: 44134     X_mean:  0.02  X_rms:  4.55     Y_mean: -0.04  Y_rms:  4.54
+fitter-000049.log:[ "DUTHisto01"]     Ntrks: 43902     X_mean:  0.01  X_rms:  4.33     Y_mean: -0.02  Y_rms:  4.33
+fitter-000049.log:[ "DUTHisto00"]     Ntrks: 43584     X_mean: -0.02  X_rms:  6.67     Y_mean:  0.10  Y_rms:  6.70
+fitter-000050.log:[ "DUTHisto05"]     Ntrks: 39508     X_mean:  0.07  X_rms:  6.79     Y_mean:  0.10  Y_rms:  6.76
+fitter-000050.log:[ "DUTHisto04"]     Ntrks: 39798     X_mean: -0.07  X_rms:  4.52     Y_mean: -0.06  Y_rms:  4.52
+fitter-000050.log:[ "DUTHisto03"]     Ntrks: 39929     X_mean:  0.02  X_rms:  4.62     Y_mean: -0.00  Y_rms:  4.61
+fitter-000050.log:[ "DUTHisto02"]     Ntrks: 39988     X_mean: -0.02  X_rms:  4.65     Y_mean:  0.01  Y_rms:  4.63
+fitter-000050.log:[ "DUTHisto01"]     Ntrks: 39760     X_mean: -0.01  X_rms:  4.40     Y_mean: -0.01  Y_rms:  4.43
+fitter-000050.log:[ "DUTHisto00"]     Ntrks: 39486     X_mean:  0.04  X_rms:  6.76     Y_mean:  0.04  Y_rms:  6.73
+fitter-000051.log:[ "DUTHisto05"]     Ntrks: 32074     X_mean: -0.00  X_rms:  6.93     Y_mean: -0.07  Y_rms:  6.87
+fitter-000051.log:[ "DUTHisto04"]     Ntrks: 32355     X_mean:  0.03  X_rms:  4.64     Y_mean:  0.10  Y_rms:  4.62
+fitter-000051.log:[ "DUTHisto03"]     Ntrks: 32493     X_mean: -0.02  X_rms:  4.78     Y_mean: -0.02  Y_rms:  4.75
+fitter-000051.log:[ "DUTHisto02"]     Ntrks: 32496     X_mean:  0.01  X_rms:  4.76     Y_mean: -0.05  Y_rms:  4.80
+fitter-000051.log:[ "DUTHisto01"]     Ntrks: 32331     X_mean: -0.02  X_rms:  4.52     Y_mean: -0.02  Y_rms:  4.53
+fitter-000051.log:[ "DUTHisto00"]     Ntrks: 32118     X_mean:  0.02  X_rms:  6.92     Y_mean:  0.09  Y_rms:  6.92
+fitter-000052.log:[ "DUTHisto05"]     Ntrks: 36998     X_mean:  0.03  X_rms:  7.04     Y_mean:  0.06  Y_rms:  7.04
+fitter-000052.log:[ "DUTHisto04"]     Ntrks: 37269     X_mean: -0.05  X_rms:  4.78     Y_mean: -0.00  Y_rms:  4.76
+fitter-000052.log:[ "DUTHisto03"]     Ntrks: 37426     X_mean: -0.01  X_rms:  4.95     Y_mean: -0.04  Y_rms:  4.86
+fitter-000052.log:[ "DUTHisto02"]     Ntrks: 37456     X_mean:  0.05  X_rms:  4.96     Y_mean: -0.02  Y_rms:  4.90
+fitter-000052.log:[ "DUTHisto01"]     Ntrks: 37262     X_mean: -0.02  X_rms:  4.67     Y_mean: -0.03  Y_rms:  4.72
+fitter-000052.log:[ "DUTHisto00"]     Ntrks: 37000     X_mean:  0.01  X_rms:  7.06     Y_mean:  0.09  Y_rms:  7.05
+fitter-000053.log:[ "DUTHisto05"]     Ntrks: 25496     X_mean:  0.18  X_rms:  7.17     Y_mean:  0.17  Y_rms:  7.13
+fitter-000053.log:[ "DUTHisto04"]     Ntrks: 25706     X_mean: -0.11  X_rms:  4.93     Y_mean: -0.03  Y_rms:  4.90
+fitter-000053.log:[ "DUTHisto03"]     Ntrks: 25802     X_mean: -0.09  X_rms:  5.03     Y_mean: -0.04  Y_rms:  5.00
+fitter-000053.log:[ "DUTHisto02"]     Ntrks: 25812     X_mean:  0.06  X_rms:  5.02     Y_mean: -0.08  Y_rms:  5.03
+fitter-000053.log:[ "DUTHisto01"]     Ntrks: 25708     X_mean:  0.02  X_rms:  4.74     Y_mean: -0.02  Y_rms:  4.78
+fitter-000053.log:[ "DUTHisto00"]     Ntrks: 25500     X_mean:  0.06  X_rms:  7.16     Y_mean:  0.18  Y_rms:  7.14
+fitter-000054.log:[ "DUTHisto05"]     Ntrks: 19524     X_mean:  0.08  X_rms:  7.32     Y_mean: -0.00  Y_rms:  7.30
+fitter-000054.log:[ "DUTHisto04"]     Ntrks: 19668     X_mean: -0.06  X_rms:  5.01     Y_mean:  0.04  Y_rms:  5.06
+fitter-000054.log:[ "DUTHisto03"]     Ntrks: 19765     X_mean: -0.04  X_rms:  5.11     Y_mean: -0.03  Y_rms:  5.12
+fitter-000054.log:[ "DUTHisto02"]     Ntrks: 19781     X_mean:  0.04  X_rms:  5.14     Y_mean: -0.01  Y_rms:  5.17
+fitter-000054.log:[ "DUTHisto01"]     Ntrks: 19670     X_mean: -0.00  X_rms:  4.92     Y_mean: -0.05  Y_rms:  4.93
+fitter-000054.log:[ "DUTHisto00"]     Ntrks: 19492     X_mean:  0.01  X_rms:  7.29     Y_mean:  0.08  Y_rms:  7.25
+fitter-000055.log:[ "DUTHisto05"]     Ntrks: 13113     X_mean:  0.21  X_rms:  7.37     Y_mean: -0.04  Y_rms:  7.44
+fitter-000055.log:[ "DUTHisto04"]     Ntrks: 13207     X_mean: -0.08  X_rms:  5.17     Y_mean:  0.05  Y_rms:  5.11
+fitter-000055.log:[ "DUTHisto03"]     Ntrks: 13257     X_mean: -0.09  X_rms:  5.19     Y_mean:  0.04  Y_rms:  5.16
+fitter-000055.log:[ "DUTHisto02"]     Ntrks: 13276     X_mean:  0.04  X_rms:  5.22     Y_mean: -0.04  Y_rms:  5.22
+fitter-000055.log:[ "DUTHisto01"]     Ntrks: 13212     X_mean: -0.03  X_rms:  5.02     Y_mean: -0.03  Y_rms:  5.02
+fitter-000055.log:[ "DUTHisto00"]     Ntrks: 13086     X_mean:  0.11  X_rms:  7.41     Y_mean:  0.04  Y_rms:  7.38
+fitter-000058.log:[ "DUTHisto05"]     Ntrks: 30053     X_mean:  0.09  X_rms:  6.18     Y_mean: -0.03  Y_rms:  6.15
+fitter-000058.log:[ "DUTHisto04"]     Ntrks: 30194     X_mean: -0.19  X_rms:  4.36     Y_mean:  0.03  Y_rms:  4.42
+fitter-000058.log:[ "DUTHisto03"]     Ntrks: 30273     X_mean:  0.08  X_rms:  4.37     Y_mean: -0.00  Y_rms:  4.36
+fitter-000058.log:[ "DUTHisto02"]     Ntrks: 30275     X_mean:  0.06  X_rms:  4.29     Y_mean:  0.02  Y_rms:  4.36
+fitter-000058.log:[ "DUTHisto01"]     Ntrks: 30190     X_mean:  0.04  X_rms:  4.23     Y_mean: -0.01  Y_rms:  4.37
+fitter-000058.log:[ "DUTHisto00"]     Ntrks: 30109     X_mean: -0.09  X_rms:  6.12     Y_mean:  0.00  Y_rms:  6.20
+fitter-000059.log:[ "DUTHisto05"]     Ntrks: 27934     X_mean: -0.00  X_rms:  6.10     Y_mean: -0.07  Y_rms:  6.15
+fitter-000059.log:[ "DUTHisto04"]     Ntrks: 28050     X_mean:  0.03  X_rms:  4.33     Y_mean:  0.05  Y_rms:  4.39
+fitter-000059.log:[ "DUTHisto03"]     Ntrks: 28093     X_mean: -0.03  X_rms:  4.30     Y_mean:  0.00  Y_rms:  4.28
+fitter-000059.log:[ "DUTHisto02"]     Ntrks: 28117     X_mean: -0.00  X_rms:  4.27     Y_mean:  0.03  Y_rms:  4.30
+fitter-000059.log:[ "DUTHisto01"]     Ntrks: 28010     X_mean: -0.01  X_rms:  4.17     Y_mean: -0.01  Y_rms:  4.28
+fitter-000059.log:[ "DUTHisto00"]     Ntrks: 27962     X_mean:  0.03  X_rms:  5.99     Y_mean: -0.03  Y_rms:  6.13
+fitter-000061.log:[ "DUTHisto05"]     Ntrks: 29553     X_mean:  0.09  X_rms:  6.14     Y_mean:  0.11  Y_rms:  6.10
+fitter-000061.log:[ "DUTHisto04"]     Ntrks: 29664     X_mean: -0.03  X_rms:  4.30     Y_mean: -0.05  Y_rms:  4.32
+fitter-000061.log:[ "DUTHisto03"]     Ntrks: 29765     X_mean:  0.00  X_rms:  4.24     Y_mean: -0.02  Y_rms:  4.23
+fitter-000061.log:[ "DUTHisto02"]     Ntrks: 29734     X_mean: -0.03  X_rms:  4.21     Y_mean: -0.03  Y_rms:  4.26
+fitter-000061.log:[ "DUTHisto01"]     Ntrks: 29647     X_mean:  0.00  X_rms:  4.16     Y_mean: -0.03  Y_rms:  4.18
+fitter-000061.log:[ "DUTHisto00"]     Ntrks: 29588     X_mean:  0.06  X_rms:  6.00     Y_mean:  0.11  Y_rms:  6.05
+fitter-000062.log:[ "DUTHisto05"]     Ntrks: 31139     X_mean: -0.09  X_rms:  6.15     Y_mean:  0.04  Y_rms:  6.08
+fitter-000062.log:[ "DUTHisto04"]     Ntrks: 31232     X_mean:  0.02  X_rms:  4.26     Y_mean:  0.01  Y_rms:  4.29
+fitter-000062.log:[ "DUTHisto03"]     Ntrks: 31328     X_mean:  0.02  X_rms:  4.34     Y_mean: -0.03  Y_rms:  4.25
+fitter-000062.log:[ "DUTHisto02"]     Ntrks: 31336     X_mean:  0.04  X_rms:  4.23     Y_mean: -0.02  Y_rms:  4.24
+fitter-000062.log:[ "DUTHisto01"]     Ntrks: 31241     X_mean: -0.03  X_rms:  4.18     Y_mean:  0.01  Y_rms:  4.21
+fitter-000062.log:[ "DUTHisto00"]     Ntrks: 31158     X_mean: -0.03  X_rms:  6.05     Y_mean:  0.05  Y_rms:  6.01
+fitter-000063.log:[ "DUTHisto05"]     Ntrks: 30658     X_mean:  0.04  X_rms:  6.15     Y_mean:  0.08  Y_rms:  6.17
+fitter-000063.log:[ "DUTHisto04"]     Ntrks: 30754     X_mean: -0.06  X_rms:  4.36     Y_mean: -0.02  Y_rms:  4.39
+fitter-000063.log:[ "DUTHisto03"]     Ntrks: 30852     X_mean:  0.02  X_rms:  4.35     Y_mean: -0.03  Y_rms:  4.34
+fitter-000063.log:[ "DUTHisto02"]     Ntrks: 30848     X_mean:  0.00  X_rms:  4.33     Y_mean: -0.02  Y_rms:  4.34
+fitter-000063.log:[ "DUTHisto01"]     Ntrks: 30740     X_mean:  0.02  X_rms:  4.25     Y_mean: -0.01  Y_rms:  4.29
+fitter-000063.log:[ "DUTHisto00"]     Ntrks: 30669     X_mean: -0.01  X_rms:  6.11     Y_mean:  0.07  Y_rms:  6.17
+fitter-000064.log:[ "DUTHisto05"]     Ntrks: 26229     X_mean:  0.01  X_rms:  6.28     Y_mean:  0.05  Y_rms:  6.24
+fitter-000064.log:[ "DUTHisto04"]     Ntrks: 26284     X_mean:  0.01  X_rms:  4.47     Y_mean: -0.00  Y_rms:  4.43
+fitter-000064.log:[ "DUTHisto03"]     Ntrks: 26379     X_mean: -0.03  X_rms:  4.53     Y_mean: -0.03  Y_rms:  4.44
+fitter-000064.log:[ "DUTHisto02"]     Ntrks: 26396     X_mean:  0.00  X_rms:  4.49     Y_mean: -0.02  Y_rms:  4.51
+fitter-000064.log:[ "DUTHisto01"]     Ntrks: 26282     X_mean: -0.03  X_rms:  4.37     Y_mean:  0.06  Y_rms:  4.40
+fitter-000064.log:[ "DUTHisto00"]     Ntrks: 26212     X_mean:  0.05  X_rms:  6.27     Y_mean: -0.00  Y_rms:  6.24
+fitter-000065.log:[ "DUTHisto05"]     Ntrks: 24647     X_mean:  0.19  X_rms:  6.46     Y_mean:  0.01  Y_rms:  6.45
+fitter-000065.log:[ "DUTHisto04"]     Ntrks: 24760     X_mean: -0.10  X_rms:  4.63     Y_mean: -0.01  Y_rms:  4.66
+fitter-000065.log:[ "DUTHisto03"]     Ntrks: 24824     X_mean: -0.06  X_rms:  4.63     Y_mean: -0.01  Y_rms:  4.65
+fitter-000065.log:[ "DUTHisto02"]     Ntrks: 24854     X_mean: -0.00  X_rms:  4.68     Y_mean: -0.00  Y_rms:  4.65
+fitter-000065.log:[ "DUTHisto01"]     Ntrks: 24748     X_mean:  0.03  X_rms:  4.52     Y_mean: -0.02  Y_rms:  4.54
+fitter-000065.log:[ "DUTHisto00"]     Ntrks: 24673     X_mean:  0.04  X_rms:  6.51     Y_mean:  0.04  Y_rms:  6.40
+fitter-000066.log:[ "DUTHisto05"]     Ntrks: 21066     X_mean:  0.06  X_rms:  6.50     Y_mean: -0.01  Y_rms:  6.53
+fitter-000066.log:[ "DUTHisto04"]     Ntrks: 21139     X_mean: -0.09  X_rms:  4.74     Y_mean: -0.01  Y_rms:  4.77
+fitter-000066.log:[ "DUTHisto03"]     Ntrks: 21192     X_mean:  0.03  X_rms:  4.75     Y_mean:  0.00  Y_rms:  4.71
+fitter-000066.log:[ "DUTHisto02"]     Ntrks: 21229     X_mean:  0.03  X_rms:  4.77     Y_mean:  0.03  Y_rms:  4.82
+fitter-000066.log:[ "DUTHisto01"]     Ntrks: 21134     X_mean: -0.02  X_rms:  4.60     Y_mean: -0.04  Y_rms:  4.63
+fitter-000066.log:[ "DUTHisto00"]     Ntrks: 21075     X_mean:  0.01  X_rms:  6.50     Y_mean:  0.05  Y_rms:  6.56
+fitter-000067.log:[ "DUTHisto05"]     Ntrks: 16551     X_mean:  0.09  X_rms:  6.64     Y_mean:  0.14  Y_rms:  6.66
+fitter-000067.log:[ "DUTHisto04"]     Ntrks: 16618     X_mean: -0.06  X_rms:  4.85     Y_mean: -0.01  Y_rms:  4.85
+fitter-000067.log:[ "DUTHisto03"]     Ntrks: 16655     X_mean: -0.02  X_rms:  4.82     Y_mean: -0.04  Y_rms:  4.79
+fitter-000067.log:[ "DUTHisto02"]     Ntrks: 16680     X_mean: -0.01  X_rms:  4.87     Y_mean: -0.08  Y_rms:  4.86
+fitter-000067.log:[ "DUTHisto01"]     Ntrks: 16601     X_mean: -0.01  X_rms:  4.77     Y_mean: -0.03  Y_rms:  4.75
+fitter-000067.log:[ "DUTHisto00"]     Ntrks: 16556     X_mean:  0.06  X_rms:  6.76     Y_mean:  0.17  Y_rms:  6.73
+fitter-000068.log:[ "DUTHisto05"]     Ntrks: 12850     X_mean:  0.12  X_rms:  6.78     Y_mean:  0.17  Y_rms:  6.77
+fitter-000068.log:[ "DUTHisto04"]     Ntrks: 12900     X_mean: -0.07  X_rms:  4.96     Y_mean: -0.05  Y_rms:  4.94
+fitter-000068.log:[ "DUTHisto03"]     Ntrks: 12934     X_mean: -0.05  X_rms:  4.93     Y_mean: -0.04  Y_rms:  4.84
+fitter-000068.log:[ "DUTHisto02"]     Ntrks: 12946     X_mean:  0.01  X_rms:  4.95     Y_mean: -0.09  Y_rms:  4.97
+fitter-000068.log:[ "DUTHisto01"]     Ntrks: 12897     X_mean:  0.02  X_rms:  4.80     Y_mean: -0.00  Y_rms:  4.81
+fitter-000068.log:[ "DUTHisto00"]     Ntrks: 12849     X_mean:  0.03  X_rms:  6.68     Y_mean:  0.16  Y_rms:  6.78
+

@@ -1,0 +1,46 @@
+# files created by ILCSoft install
+.dependencies
+build_env.sh
+
+# files/directories created by CMake
+bin/*
+build/*
+lib/*
+
+# Ignore data files:
+*.raw
+*.slcio
+
+# Ignore ROOT files:
+*.root
+
+# Ignore logs:
+*.zip
+*.log
+
+# Ignore analysis files (if not added specifically with "git add [file]")
+#*.xml
+*.csv
+*.cfg
+*.sh
+*.cmake
+
+# Millepede output files:
+*.res
+*.pede2lcio
+*.his
+*.bin
+
+# Ignore emacs backup and autosaves:
+\#*#
+*~
+
+# Ignore external package installations
+external/*
+
+# ignore eclipse project files
+.project
+.cproject
+
+# ignore python byte code
+*.pyc

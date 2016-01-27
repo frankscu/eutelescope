@@ -1,0 +1,74 @@
+197,198c197,198
+<     streamlog_out ( MESSAGE5 ) << "xMin " << xMin << " " << xMax << endl;
+<     streamlog_out ( MESSAGE5 ) << "yMin " << yMin << " " << yMax << endl;
+---
+>     cout << "xMin " << xMin << " " << xMax << endl;
+>     cout << "yMin " << yMin << " " << yMax << endl;
+204c204
+< int EUTelDafAlign::checkDutResids(daffitter::TrackCandidate<float,4>& track){
+---
+> int EUTelDafAlign::checkDutResids(daffitter::TrackCandidate* track){
+208c208
+<     daffitter::FitPlane<float>& plane = _system.planes.at(ii);
+---
+>     daffitter::FitPlane& plane = _system.planes.at(ii);
+216,217c216,217
+<       daffitter::Measurement<float>& meas = plane.meas.at(w);
+<       daffitter::TrackEstimate<float,4>& estim = track.estimates.at(ii);
+---
+>       daffitter::Measurement& meas = plane.meas.at(w);
+>       daffitter::TrackEstimate* estim = track->estimates.at(ii);
+219,222c219,222
+<       if( (estim.getX() - meas.getX()) < resX.first) { measWeight = 0.0f;}
+<       if( (estim.getX() - meas.getX()) > resX.second){ measWeight = 0.0f;}
+<       if( (estim.getY() - meas.getY()) < resY.first) { measWeight = 0.0f;}
+<       if( (estim.getY() - meas.getY()) > resY.second){ measWeight = 0.0f;}
+---
+>       if( (estim->getX() - meas.getX()) < resX.first) { measWeight = 0.0f;}
+>       if( (estim->getX() - meas.getX()) > resX.second){ measWeight = 0.0f;}
+>       if( (estim->getY() - meas.getY()) < resY.first) { measWeight = 0.0f;}
+>       if( (estim->getY() - meas.getY()) > resY.second){ measWeight = 0.0f;}
+227c227
+<       track.weights.at(ii)(w) = measWeight;
+---
+>       plane.weights(w) = measWeight;
+231a232
+>     track->weights.at(ii) = plane.weights;
+240c241
+<     _nCandidates++;
+---
+>     _nClusters++;
+256c257
+< 	  _system.fitPlanesInfoBiased(_system.tracks.at(ii));
+---
+> 	  _system.fitPlanesInfo(_system.tracks.at(ii));
+266c267
+< void EUTelDafAlign::addToMille(daffitter::TrackCandidate<float,4>& track){
+---
+> void EUTelDafAlign::addToMille(daffitter::TrackCandidate* track){
+281c282
+<     daffitter::FitPlane<float>& pl = _system.planes.at(ii);
+---
+>     daffitter::FitPlane& pl = _system.planes.at(ii);
+283c284
+<     int index = track.indexes.at(ii);
+---
+>     int index = track->indexes.at(ii);
+286,287c287,288
+<     daffitter::Measurement<float>& meas = pl.meas.at(index);
+<     daffitter::TrackEstimate<float,4>& estim = track.estimates.at(ii);
+---
+>     daffitter::Measurement& meas = pl.meas.at(index);
+>     daffitter::TrackEstimate* estim = track->estimates.at(ii);
+293c294
+<     _mille->mille(nLC, derLC, nGL, derGL, label, estim.getX()- meas.getX(), pl.getSigmaX());
+---
+>     _mille->mille(nLC, derLC, nGL, derGL, label, estim->getX()- meas.getX(), pl.getSigmaX());
+308c309
+<     _mille->mille(nLC, derLC, nGL, derGL, label, estim.getY() - meas.getY(), pl.getSigmaY());
+---
+>     _mille->mille(nLC, derLC, nGL, derGL, label, estim->getY() - meas.getY(), pl.getSigmaY());
+337c338
+<     daffitter::FitPlane<float>& pl = _system.planes.at(ii);
+---
+>     daffitter::FitPlane& pl = _system.planes.at(ii);
